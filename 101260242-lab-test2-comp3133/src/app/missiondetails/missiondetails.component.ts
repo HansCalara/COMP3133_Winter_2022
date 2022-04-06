@@ -1,0 +1,34 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SpacexapiService } from '../network/spacexapi.service';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-missiondetails',
+  templateUrl: './missiondetails.component.html',
+  styleUrls: ['./missiondetails.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class MissiondetailsComponent implements OnInit {
+  @ViewChild(MissiondetailsComponent) child: any;
+  id: any;
+  data: any;
+  constructor(
+    private route: ActivatedRoute,
+    private spacexservice: SpacexapiService
+  ) {}
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.getMissionDetails();
+  }
+
+  getMissionDetails(): void {
+    this.spacexservice.getById(this.id).subscribe((res) => {
+      if (res) {
+        JSON.parse(JSON.stringify(res));
+        this.data = res;
+      }
+    });
+  }
+}

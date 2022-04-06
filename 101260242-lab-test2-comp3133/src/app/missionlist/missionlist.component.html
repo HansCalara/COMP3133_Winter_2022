@@ -1,0 +1,27 @@
+<h1>SpaceX Mission Launch List</h1>
+
+<br />
+
+<div *ngFor="let data of missionList">
+  <div>
+    <img src="{{ data.links.mission_patch_small }}" />
+    <br /><br />
+    <mat-card-header>
+      <mat-card-title
+        ><b>{{ data.mission_name }} </b></mat-card-title
+      >
+      <mat-card-subtitle>{{ data.launch_year }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{ data.details }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a
+          [routerLink]="['/missiondetails', data.flight_number]"
+          routerLinkActive="active"
+          ><button mat-raised-button color="primary">Details</button></a
+        >
+      </mat-card-actions>
+    </mat-card-header>
+  </div>
+  <br /><br /><br /><br />
+</div>

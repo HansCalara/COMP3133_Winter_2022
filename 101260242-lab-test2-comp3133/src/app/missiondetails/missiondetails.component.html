@@ -1,0 +1,22 @@
+<h1>SpaceX Mission Details</h1>
+<div>
+  <div>
+    <img [src]="data.links.mission_patch" height="300px" width="300px" />
+  </div>
+
+  <div>
+    <div>
+      <p><b>Name:</b> {{ data.mission_name }}</p>
+      <p><b>Year:</b> {{ data.launch_year }}</p>
+      <p><b>Flight Number:</b> {{ data.flight_number }}</p>
+      <p><b>Launch Details:</b> {{ data.details }}</p>
+      <p><b>Rocket name:</b> {{ data.rocket.rocket_name }}</p>
+      <p><b>Rocket type:</b> {{ data.rocket.rocket_type }}</p>
+    </div>
+    <mat-card-actions>
+      <a [routerLink]="['/mission']" routerLinkActive="active"
+        ><button mat-raised-button color="primary">Return</button></a
+      >
+    </mat-card-actions>
+  </div>
+</div>
