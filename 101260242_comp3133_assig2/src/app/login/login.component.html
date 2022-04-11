@@ -1,0 +1,37 @@
+<body>
+  <div class="container">
+    <div class="card">
+      <h1 class="title">Login</h1>
+      <form>
+        <!-- Email -->
+        <div class="input-container">
+          <input type="email" id="email" required="required" />
+          <label for="email">Email</label>
+          <div class="bar"></div>
+        </div>
+        <!-- Password -->
+        <div class="input-container">
+          <input
+            type="password"
+            id="password"
+            required="required"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+          />
+          <label for="passw">Password </label>
+          <div class="bar"></div>
+        </div>
+        <!-- Submit -->
+        <div class="button-container">
+          <button type="submit"><span>Go</span></button>
+        </div>
+        <!-- Register -->
+        <div class="footer">
+          <a [routerLink]="['/register']" routerLinkActive="active"
+            >Need an account?</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
